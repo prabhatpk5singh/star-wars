@@ -1,0 +1,59 @@
+<div class="home-header">
+  <h1>STAR WARS</h1>
+  <div class="home-name">THE SWAPI PROJECT</div>
+</div>
+
+<div class="home-container">
+  <div class="filter-section">
+    <h3>Filters</h3>
+    <div class="filter-group">
+      <label for="movie">Movie Name</label>
+      <input type="text" id="movie" [(ngModel)]="filterCriteria.movie" placeholder="e.g., Episode IV">
+    </div>
+
+    <div class="filter-group">
+      <label for="species">Species</label>
+      <input type="text" id="species" [(ngModel)]="filterCriteria.species" placeholder="e.g., Human">
+    </div>
+
+    <div class="filter-group">
+      <label for="vehicle">Vehicle</label>
+      <input type="text" id="vehicle" [(ngModel)]="filterCriteria.vehicle" placeholder="e.g., X-wing">
+    </div>
+
+    <div class="filter-group">
+      <label for="starship">Star Ships</label>
+      <input type="text" id="starship" [(ngModel)]="filterCriteria.starship" placeholder="e.g., Millennium Falcon">
+    </div>
+
+    <div class="filter-group">
+      <label for="birthYear">Birth Year Range</label>
+      <input type="number" id="birthYearMin" [(ngModel)]="filterCriteria.birthYearRange.min" placeholder="Min">
+      <input type="number" id="birthYearMax" [(ngModel)]="filterCriteria.birthYearRange.max" placeholder="Max">
+    </div>
+
+    <button (click)="applyFilters()">Search</button>
+  </div>
+
+  <div class="results-section">
+    <h3>SEARCH RESULTS</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Sl No.</th>
+          <th>Character Name</th>
+          <th>Species</th>
+          <th>Birth Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let character of filteredCharacters; let i = index" [routerLink]="['/profile', character.url.split('/').slice(-2, -1)[0]]">
+          <td>{{ i + 1 }}</td>
+          <td>{{ character.name }}</td>
+          <td>{{ character.species | joinArray }}</td>
+          <td>{{ character.birth_year }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

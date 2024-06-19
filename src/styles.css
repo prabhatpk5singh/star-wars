@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+/* Add your global styles here
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .filter-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+  }
+  
+  .filter-section label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  
+  .filter-section input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .filter-section button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .filter-section button:hover {
+    background-color: #0056b3;
+  }
+  
+  .character-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+  }
+  
+  .character-list li {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .character-list li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .character-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .character-detail {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+  }
+  
+  .character-detail h1 {
+    margin-top: 0;
+  }
+  
+  .character-detail p {
+    margin: 10px 0;
+  }
+  
+  .character-detail p strong {
+    display: inline-block;
+    width: 100px;
+  } */
