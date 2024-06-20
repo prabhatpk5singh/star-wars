@@ -13,12 +13,22 @@ export class SwapiService {
   constructor(private http: HttpClient) {}
 
   getCharacters(): Observable<Character[]> {
-    return this.http.get<any>(`${this.apiUrl}/people`).pipe( // Changed to backticks here
-      map(response => response.results)
+    return this.http.get<any>(`${this.apiUrl}/people`).pipe(
+      map((response: any) => response.results as Character[])
     );
   }
 
   getCharacterDetails(url: string): Observable<Character> {
     return this.http.get<Character>(url);
   }
+
+  getMovieDetails(url: string): Observable<any> {
+    return this.http.get<any>(url).pipe(
+      map(response => response)
+    );
+  }
+
+  getStarshipDetails(url: string): Observable<Character> {
+    return this.http.get<Character>(url);
+}
 }

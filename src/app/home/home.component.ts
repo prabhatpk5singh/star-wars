@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { SwapiService } from '../services/swapi.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -20,28 +21,36 @@ export class HomeComponent implements OnInit {
     }
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private swapiService: SwapiService) { }
 
   ngOnInit(): void {
     this.loadCharacters();
   }
 
   loadCharacters(): void {
-    this.http.get('https://swapi.dev/api/people/').subscribe((response: any) => {
-      this.characters = response.results;
+    this.swapiService.getCharacters().subscribe((characters: any[]) => {
+      this.characters = characters;
       this.filteredCharacters = this.characters;
     });
   }
 
   applyFilters(): void {
-    this.filteredCharacters = this.characters.filter(character => {
+    this.filteredCharacters = this.characters.filter((character: any) => {
       const birthYear = parseInt(character.birth_year);
-      return (!this.filterCriteria.movie || character.films.some((film: string) => film.includes(this.filterCriteria.movie))) &&
-             (!this.filterCriteria.species || character.species.includes(this.filterCriteria.species)) &&
-             (!this.filterCriteria.vehicle || character.vehicles.includes(this.filterCriteria.vehicle)) &&
-             (!this.filterCriteria.starship || character.starships.includes(this.filterCriteria.starship)) &&
-             (!this.filterCriteria.birthYearRange.min || birthYear >= this.filterCriteria.birthYearRange.min) &&
-             (!this.filterCriteria.birthYearRange.max || birthYear <= this.filterCriteria.birthYearRange.max);
+      return (!this.filterCriteria.movie || character.films.some((filmUrl: string) => {
+        return this.swapiService.getMovieDetails(filmUrl).pipe(
+          map((movie: any) => movie.title.toLowerCase().includes(this.filterCriteria.movie.toLowerCase()))
+        );
+      })) &&
+      (!this.filterCriteria.species || character.species.includes(this.filterCriteria.species)) &&
+      (!this.filterCriteria.vehicle || character.vehicles.some((vehicleUrl: string) => {
+        return vehicleUrl.toLowerCase().includes(this.filterCriteria.vehicle.toLowerCase());
+      })) &&
+      (!this.filterCriteria.starship || character.starships.some((starshipUrl: string) => {
+        return starshipUrl.toLowerCase().includes(this.filterCriteria.starship.toLowerCase());
+      })) &&
+      (!this.filterCriteria.birthYearRange.min || birthYear >= this.filterCriteria.birthYearRange.min) &&
+      (!this.filterCriteria.birthYearRange.max || birthYear <= this.filterCriteria.birthYearRange.max);
     });
   }
 }
