@@ -14,6 +14,17 @@ First and foremost thing that is required to run the application is install Node
   
   4. ng serve
 
+## Screenshots of the Application-
+
+![Screenshot (21)](https://github.com/prabhatpk5singh/star-wars/assets/160165462/f9c0104d-b9f0-410a-98c5-c07de44a022c)
+
+![Screenshot (22)](https://github.com/prabhatpk5singh/star-wars/assets/160165462/6ecf9b47-aa1e-4405-bc24-0210b634a715)
+
+![Screenshot (23)](https://github.com/prabhatpk5singh/star-wars/assets/160165462/a7da8b9c-71da-4df5-a324-17c1d4207781)
+
+![Screenshot (24)](https://github.com/prabhatpk5singh/star-wars/assets/160165462/81615e25-e28a-4c7f-8842-6c97d7e55d45)
+
+
 
 ## Development server
 
