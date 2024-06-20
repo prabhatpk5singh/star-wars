@@ -2,6 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
 
+Steps to run the Application-
+---------------------------------
+First and foremost thing that is required to run the application is install Node from the site and Angular using "npm i @angular/cli@latest"
+
+  1. Download or clone the repository
+  
+  2. After that, choose the project to open. Here use cd "project_name"
+  
+  3. Then do npm install, All the dependency  will get installed
+  
+  4. ng serve
+
+  5. U can test using "ng test"
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
